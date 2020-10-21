@@ -40,6 +40,10 @@ public class Main
 
         int maxSubjects = 8;
 
+        // TODO: 21/10/2020 - add try / catch 
+        // TODO: 21/10/2020 - make a method for the file 
+        // TODO: 21/10/2020 - add more records to the results file 
+
         while(scan.hasNext())
         {
             String [] splitInput = scan.next().split(",");
