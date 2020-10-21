@@ -42,7 +42,8 @@ public class Main
 
         // TODO: 21/10/2020 - add try / catch 
         // TODO: 21/10/2020 - make a method for the file 
-        // TODO: 21/10/2020 - add more records to the results file 
+        // TODO: 21/10/2020 - add more records to the results file
+        // TODO: 21/10/2020 - change data types of below arrays
 
         while(scan.hasNext())
         {
@@ -66,19 +67,22 @@ public class Main
                 j++;
                 k++;
             }
-
             System.out.println(Arrays.toString(subjectCodeResult));
-
             System.out.println("Student Number: " + studentNumber + ", Student Results: " + Arrays.toString(results));
-
         }
+        scan.close();
     }
+
+    // subject code - 218 - (CSPE) not to be included
+    // subject code - 1 - Irish
+    // subject code - 2 - English
+    // subject code - 3 - Maths
 
     public int[] selectFiveGrades(int[] codes, int[] grades)
     {
-        int [] selectedGradeCodes = new int[5];
+        int [] selectedGrades = new int[5];
 
-        for (int i = 0; i < selectedGradeCodes.length; i++)
+        for (int i = 0; i < selectedGrades.length; i++)
         {
             for (int j = 0; j < grades.length; j++)
             {
@@ -86,9 +90,8 @@ public class Main
             }
         }
 
-        return selectedGradeCodes;
+        return selectedGrades;
     }
-
 
 //    private double calculateAverage( int[] selectedGrades)
 //    {
