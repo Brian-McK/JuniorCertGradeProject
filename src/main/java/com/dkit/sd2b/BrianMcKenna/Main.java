@@ -66,9 +66,7 @@ public class Main
             System.out.println(Arrays.toString(subjectCodeResult));
 
             System.out.println("Student Number: " + studentNumber + ", Student Results: " + Arrays.toString(results));
-//
-//            System.out.println(studentNumber);
-//            System.out.println(Arrays.toString(splitInput));
+
         }
     }
 
