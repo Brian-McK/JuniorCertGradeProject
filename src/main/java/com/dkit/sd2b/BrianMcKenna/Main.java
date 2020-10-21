@@ -21,54 +21,44 @@ public class Main
     public static void main( String[] args ) throws FileNotFoundException
     {
         File jcResults = new File("JC_Results.txt");
-        Scanner scan = new Scanner(jcResults);
+        Scanner scan = new Scanner(jcResults).useDelimiter("[,\r\n]+");
 
         int [] subjectCodes = {1,2,3,4,5,6,7,8,9,10,11,12,13,27,40,41,42,46,47,48,52,54,57,65,81,82,83,100,106,125,
                 126,137,200,217,218,220,221,224,565,569};
-
-        String [] subjectNames = {
-                "Irish","English","Mathematics","History","Geography","Classical Studies",
-                "AncientGreek","Classical Studies","Hebrew Studies","French","German",
-                "Spanish","Italian","Engineering","Typewriting","Art, Craft, Design",
-                "Business Studies","Music (JC)","Materials Technology (Wood)","Technical Graphics",
-                "Home Economics (JC)","Metalwork","Science (JC - Revised Syllabus)","Technology",
-                "Environmental & Social Studies","Irish 2","Irish 1 ","Keyboarding","Classics ",
-                "Applied Technology","Wood Technology","Graphics","Project Mathematics",
-                "Religious Education (non-exam) ","Civic, Social & Political Education (CSPE)",
-                "Religious Education (JC Exam) ","Social, Personal and Health Education (SPHE)",
-                "Physical Education (JC)","Jewish Studies","Visual Art "};
 
         int maxSubjects = 8;
 
         // TODO: 21/10/2020 - add try / catch 
         // TODO: 21/10/2020 - make a method for the file 
         // TODO: 21/10/2020 - add more records to the results file
-        // TODO: 21/10/2020 - change data types of below arrays
 
         while(scan.hasNext())
         {
-            String [] splitInput = scan.next().split(",");
-            String studentNumber = splitInput[0];
-            String [] subjectCodeResult = new String[maxSubjects];
-            String [] results = new String[maxSubjects];
-
             int i = 0;
-            int j = i + 1;
-            int k = 1;
+            int studentNumber = scan.nextInt();
+            int [] subjectCodeResults = new int[maxSubjects];
+            int [] subjectResults = new int[maxSubjects];
+
+            while (i < maxSubjects)
+            {
+                int subjectCode = scan.nextInt();
+                System.out.println("Subject code: " + subjectCode);
+                subjectCodeResults[i] = subjectCode;
+
+                int result = scan.nextInt();
+                System.out.println("Result: " + result);
+                subjectResults[i] = result;
+
+                System.out.println("i: " + i);
+
+                i++;
+            }
+
+            System.out.println("studentNumber: " + studentNumber + ", subjectCodeResults: " +
+                    Arrays.toString(subjectCodeResults) + ", " + "subjectResults: " + Arrays.toString(subjectResults));
 
             // 891234,1,65,2,58,3,45,4,60,5,50,12,48,42,42,46,60
             // 783461,3,65,1,58,2,45,125,60,137,68,126,100,57,77,4,60
-
-            while (i < subjectCodeResult.length)
-            {
-                results[i] = splitInput[j * 2];
-                subjectCodeResult[i] = splitInput[k++];
-                i++;
-                j++;
-                k++;
-            }
-            System.out.println(Arrays.toString(subjectCodeResult));
-            System.out.println("Student Number: " + studentNumber + ", Student Results: " + Arrays.toString(results));
         }
         scan.close();
     }
@@ -78,13 +68,13 @@ public class Main
     // subject code - 2 - English
     // subject code - 3 - Maths
 
-    public int[] selectFiveGrades(int[] codes, int[] grades)
+    public int[] selectFiveGrades(int[] codes, int[] allGrades)
     {
         int [] selectedGrades = new int[5];
 
         for (int i = 0; i < selectedGrades.length; i++)
         {
-            for (int j = 0; j < grades.length; j++)
+            for (int j = 0; j < allGrades.length; j++)
             {
 
             }
