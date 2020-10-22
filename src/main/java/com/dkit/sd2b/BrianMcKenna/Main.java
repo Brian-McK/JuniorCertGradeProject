@@ -34,28 +34,26 @@ public class Main
 
         while(scan.hasNext())
         {
-            int i = 0;
             int studentNumber = scan.nextInt();
             int [] subjectCodeResults = new int[maxSubjects];
             int [] subjectResults = new int[maxSubjects];
 
+            int i = 0;
             while (i < maxSubjects)
             {
                 int subjectCode = scan.nextInt();
-                System.out.println("Subject code: " + subjectCode);
                 subjectCodeResults[i] = subjectCode;
 
                 int result = scan.nextInt();
-                System.out.println("Result: " + result);
                 subjectResults[i] = result;
-
-                System.out.println("i: " + i);
 
                 i++;
             }
 
             System.out.println("studentNumber: " + studentNumber + ", subjectCodeResults: " +
                     Arrays.toString(subjectCodeResults) + ", " + "subjectResults: " + Arrays.toString(subjectResults));
+
+            System.out.println("top 3: " + Arrays.toString(selectFiveGrades(subjectCodeResults, subjectResults)));
 
             // 891234,1,65,2,58,3,45,4,60,5,50,12,48,42,42,46,60
             // 783461,3,65,1,58,2,45,125,60,137,68,126,100,57,77,4,60
@@ -68,24 +66,40 @@ public class Main
     // subject code - 2 - English
     // subject code - 3 - Maths
 
-    public int[] selectFiveGrades(int[] codes, int[] allGrades)
+    public static int[] selectFiveGrades(int[] codes, int[] allGrades)
     {
-        int [] selectedGrades = new int[5];
+        int [] top5grades = new int[5];
+        int [] temp = new int[8];
 
-        for (int i = 0; i < selectedGrades.length; i++)
+        for (int i = 0; i < codes.length; i++)
         {
-            for (int j = 0; j < allGrades.length; j++)
+            // irish
+            if (codes[i] == 1)
             {
-
+                top5grades[i] = allGrades[i];
+            }
+            //english
+            else if(codes[i] == 2)
+            {
+                top5grades[i] = allGrades[i];
+            }
+            // maths
+            else if(codes[i] == 3)
+            {
+                top5grades[i] = allGrades[i];
+            }
+            else {
+                if(codes[i] != 218)
+                {
+                    temp[i] = allGrades[i];
+                }
             }
         }
 
-        return selectedGrades;
+        Arrays.sort(temp);
+        System.out.println("TEMP ARRAY: " + Arrays.toString(temp));
+
+        //while not equal to cspe put in temp array
+        return top5grades;
     }
-
-//    private double calculateAverage( int[] selectedGrades)
-//    {
-//
-//    }
-
 }
