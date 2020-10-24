@@ -53,18 +53,10 @@ public class Main
             System.out.println("studentNumber: " + studentNumber + ", subjectCodeResults: " +
                     Arrays.toString(subjectCodeResults) + ", " + "subjectResults: " + Arrays.toString(subjectResults));
 
-            System.out.println("top 3: " + Arrays.toString(selectFiveGrades(subjectCodeResults, subjectResults)));
-
-            // 891234,1,65,2,58,3,45,4,60,5,50,12,48,42,42,46,60
-            // 783461,3,65,1,58,2,45,125,60,137,68,126,100,57,77,4,60
+            System.out.println("top 5: " + Arrays.toString(selectFiveGrades(subjectCodeResults, subjectResults)));
         }
         scan.close();
     }
-
-    // subject code - 218 - (CSPE) not to be included
-    // subject code - 1 - Irish
-    // subject code - 2 - English
-    // subject code - 3 - Maths
 
     public static int[] selectFiveGrades(int[] codes, int[] allGrades)
     {
@@ -97,9 +89,12 @@ public class Main
         }
 
         Arrays.sort(temp);
+
+        top5grades[top5grades.length - 1] = temp[temp.length - 1];
+        top5grades[top5grades.length - 2] = temp[temp.length - 2];
+
         System.out.println("TEMP ARRAY: " + Arrays.toString(temp));
 
-        //while not equal to cspe put in temp array
         return top5grades;
     }
 }
