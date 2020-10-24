@@ -53,7 +53,7 @@ public class Main
             int [] top5Grades = selectFiveGrades(subjectCodeResults,subjectResults);
             double averageGrade = calculateAverage(top5Grades);
 
-            System.out.printf("StudentNumber: %d, Average Grade: %.2f\n",studentNumber,averageGrade);
+            printStudentResult(studentNumber,averageGrade);
         }
         scan.close();
     }
@@ -106,5 +106,10 @@ public class Main
         }
 
         return (double) sum / selectedGrades.length;
+    }
+
+    public static void printStudentResult(int studentNumber, double averageResult)
+    {
+        System.out.printf("StudentNumber: %d - Average Grade: %.2f\n",studentNumber,averageResult);
     }
 }
