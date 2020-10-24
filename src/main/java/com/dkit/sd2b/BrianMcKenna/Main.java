@@ -50,10 +50,10 @@ public class Main
                 i++;
             }
 
-            System.out.println("studentNumber: " + studentNumber + ", subjectCodeResults: " +
-                    Arrays.toString(subjectCodeResults) + ", " + "subjectResults: " + Arrays.toString(subjectResults));
+            int [] top5Grades = selectFiveGrades(subjectCodeResults,subjectResults);
+            double averageGrade = calculateAverage(top5Grades);
 
-            System.out.println("top 5: " + Arrays.toString(selectFiveGrades(subjectCodeResults, subjectResults)));
+            System.out.printf("StudentNumber: %d, Average Grade: %.2f\n",studentNumber,averageGrade);
         }
         scan.close();
     }
@@ -93,8 +93,18 @@ public class Main
         top5grades[top5grades.length - 1] = temp[temp.length - 1];
         top5grades[top5grades.length - 2] = temp[temp.length - 2];
 
-        System.out.println("TEMP ARRAY: " + Arrays.toString(temp));
-
         return top5grades;
+    }
+
+    private static double calculateAverage(int[] selectedGrades)
+    {
+        int sum = 0;
+
+        for (int selectedGrade : selectedGrades)
+        {
+            sum += selectedGrade;
+        }
+
+        return (double) sum / selectedGrades.length;
     }
 }
