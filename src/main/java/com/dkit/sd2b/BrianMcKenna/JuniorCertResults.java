@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Main
+public class JuniorCertResults
 {
     public static void main( String[] args )
     {
@@ -109,7 +109,7 @@ public class Main
         return top5grades;
     }
 
-    private static double calculateAverage(int[] selectedGrades)
+    public static double calculateAverage(int[] selectedGrades)
     {
         // initialise the sum variable
         int sum = 0;
