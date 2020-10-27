@@ -1,5 +1,9 @@
 package com.dkit.sd2b.BrianMcKenna;
 
+/* Brian McKenna - SD2B - D00197352 */
+
+/* GitHub Repository Link - https://github.com/Brian-McK/JuniorCertGradeProject */
+
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
@@ -41,14 +45,42 @@ public class JuniorCertResultsTest
     }
 
     @Test
-    public void calculateAverage()
+    public void calculateAverageTest1()
     {
+        System.out.println("Test 1 calculateAverage");
+        int [] top5Grades = {50,100,90,75,40};
+        double expectedResult = 71;
+        double actualResult = JuniorCertResults.calculateAverage(top5Grades);
+        assertEquals(expectedResult,actualResult,0.01);
     }
 
     @Test
-    public void printStudentResult()
+    public void calculateAverageTest2()
     {
+        System.out.println("Test 2 calculateAverage");
+        int [] top5Grades = {20,30,0,39,20};
+        double expectedResult = 21.8;
+        double actualResult = JuniorCertResults.calculateAverage(top5Grades);
+        assertEquals(expectedResult,actualResult,0.01);
     }
 
+    @Test
+    public void calculateAverageTest3()
+    {
+        System.out.println("Test 3 calculateAverage");
+        int [] top5Grades = {0,0,0,0,100};
+        double expectedResult = 20;
+        double actualResult = JuniorCertResults.calculateAverage(top5Grades);
+        assertEquals(expectedResult,actualResult,0.01);
+    }
 
+    @Test
+    public void calculateAverageTest4()
+    {
+        System.out.println("Test 4 calculateAverage");
+        int [] top5Grades = {99,99,99,99,100};
+        double expectedResult = 99.2;
+        double actualResult = JuniorCertResults.calculateAverage(top5Grades);
+        assertEquals(expectedResult,actualResult,0.01);
+    }
 }

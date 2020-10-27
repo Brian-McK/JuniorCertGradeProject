@@ -76,7 +76,7 @@ public class JuniorCertResults
         int [] top5grades = new int[5];
         int [] temp = new int[8];
 
-        // counter to control the index of the top5Grades
+        // initialise a counter to control the index of the top5Grades
         int top5index = 0;
 
         for (int i = 0; i < codes.length; i++)
@@ -120,7 +120,7 @@ public class JuniorCertResults
             sum += selectedGrade;
         }
 
-        // cast to a double, calculate the average and return
+        // cast to a double, calculate the average and return the value
         return (double) sum / selectedGrades.length;
     }
 
