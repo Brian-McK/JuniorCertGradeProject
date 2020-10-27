@@ -1,8 +1,10 @@
 package com.dkit.sd2b.BrianMcKenna;
 
-/* Brian McKenna - SD2B - D00197352 */
-
-/* GitHub Repository Link - https://github.com/Brian-McK/JuniorCertGradeProject */
+/*
+ * @author Brian McKenna - SD2B - D00197352
+ * @since 27-10-2020
+ * /* GitHub Repository Link - https://github.com/Brian-McK/JuniorCertGradeProject
+*/
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;

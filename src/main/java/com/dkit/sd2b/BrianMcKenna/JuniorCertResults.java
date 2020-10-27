@@ -1,8 +1,10 @@
 package com.dkit.sd2b.BrianMcKenna;
 
-/* Brian McKenna - SD2B - D00197352 */
-
-/* GitHub Repository Link - https://github.com/Brian-McK/JuniorCertGradeProject */
+/*
+ * @author Brian McKenna - SD2B - D00197352
+ * @since 27-10-2020
+ * /* GitHub Repository Link - https://github.com/Brian-McK/JuniorCertGradeProject
+ */
 
 import java.io.File;
 import java.io.IOException;
@@ -16,6 +18,9 @@ public class JuniorCertResults
         // method call for finding the .txt file and executing the calculations
         readTxtFile("JC_Results.txt");
     }
+
+    /** readTxtFile - Reads in the pathway to the file
+     * Within this method, other methods are executed **/
 
     public static void readTxtFile(String pathname)
     {
@@ -70,6 +75,13 @@ public class JuniorCertResults
         }
     }
 
+    /** selectFiveGrades method selects the top five grades from a set of student results
+     * based on conditions that 3 of the subjects are irish / english / maths & also that
+     * the subject C.S.P.E is not to be included in the final give grades
+     * @param codes is taken from the readTxtFile method
+     * @param allGrades is taken from the readTxtFile method
+     * @return returns the top 5 grades for the student **/
+
     public static int[] selectFiveGrades(int[] codes, int[] allGrades)
     {
         // declare arrays
@@ -109,6 +121,10 @@ public class JuniorCertResults
         return top5grades;
     }
 
+    /** calculateAverage method calculates the average grade for the student
+     * @param selectedGrades is generated from the selectFiveGrades method
+     * @return returns the average grade for the student **/
+
     public static double calculateAverage(int[] selectedGrades)
     {
         // initialise the sum variable
@@ -123,6 +139,11 @@ public class JuniorCertResults
         // cast to a double, calculate the average and return the value
         return (double) sum / selectedGrades.length;
     }
+
+    /** printStudentResult - prints out the student number and the average
+     * result to two decimal places
+     * @param studentNumber is taken from the readTxtFile method
+     * @param averageResult is generated from the calculateAverage method **/
 
     public static void printStudentResult(int studentNumber, double averageResult)
     {
